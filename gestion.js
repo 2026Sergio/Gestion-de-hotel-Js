@@ -58,4 +58,15 @@ function registrarHabitacion(callback){
         callback();
     }, 2000)
 }
-
+function ListaHabitaciones(callback){
+    if(habitaciones.length === 0){
+        console.log("No existen registros");
+        callback();
+    } else {
+        console.log("Lista de habitaciones:");
+        habitaciones.forEach(function(habitacion){
+            console.log(habitacion.numero + " - " + habitacion.tipo + " - " + habitacion.precioNoche + " - " + habitacion.estado + " - " + habitacion.huesped);
+        });
+        callback();
+    }
+}
