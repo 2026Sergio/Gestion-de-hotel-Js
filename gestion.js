@@ -32,7 +32,7 @@ function menuPrincipal(){
             break;
         default:
             console.log("Opcion no valida, intente de nuevo");
-            menuprincipal();
+            menuPrincipal();
     }
 }
 menuPrincipal()
@@ -42,10 +42,16 @@ function registrarHabitacion(callback){
     let tipo  = prompt("sencilla, doble, suie: ")
     let precioNoche = prompt("precio por noche: ")
     let estado = prompt("Libre, ocupado o limpieza: ")
-    let huesped = prompt("Nombre del huesped (vacio si esta libre): ")
+    let huesped;
+    if(estado.toLowerCase() === "libre"){
+        huesped = "";
+    } else {
+        huesped = prompt("Nombre del huesped: ");
+    }
     
     let habitacion = {numero, tipo, precioNoche, estado, huesped};
 
+    console.log("Validando Información de la habitación...");
     setTimeout(function(){
         habitaciones.push(habitacion);
         console.log("habitacion"+ numero + " registrada");
