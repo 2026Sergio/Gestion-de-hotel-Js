@@ -89,3 +89,26 @@ function buscarHabitacionNumero(callback){
     }, 2000);
 }
 
+function CambiarEstadoHabitacion(callback){
+    let numero = prompt("Numero de habitacion: ");
+    let habitacion = habitaciones.find(h => h.numero == numero);
+    if(!habitacion){
+        console.log("Habitacion no encontrada");
+        callback();
+        return;
+    }
+    console.log("Esperando al personal del hotel...");
+    setTimeout(function(){
+        let nuevoEstado = prompt("Nuevo estado (Libre, ocupado o limpieza): ");
+        habitacion.estado = nuevoEstado;
+        if(nuevoEstado.toLowerCase() === "ocupado"){
+            let huesped = prompt("Nombre del huesped: ");
+            habitacion.huesped = huesped;
+        } else if(nuevoEstado.toLowerCase() === "libre"){
+            habitacion.huesped = "";
+        }
+        console.log("Estado de la habitacion " + numero + " cambiado a " + nuevoEstado);
+        callback();
+    }, 3000);
+}
+
