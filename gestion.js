@@ -111,4 +111,15 @@ function CambiarEstadoHabitacion(callback){
         callback();
     }, 3000);
 }
+function eliminarHabitacion(callback){
+    let numero = prompt("Numero de habitacion a eliminar: ");
+    let index = habitaciones.findIndex(h => h.numero == numero);
+    if(index !== -1){
+        habitaciones.splice(index, 1);
+        console.log("Habitacion " + numero + " eliminada");
+    } else {
+        console.log("Habitacion no encontrada");
+    }
+    callback();
+}
 
