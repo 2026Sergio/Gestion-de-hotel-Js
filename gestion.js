@@ -70,3 +70,22 @@ function ListaHabitaciones(callback){
         callback();
     }
 }
+function buscarHabitacionNumero(callback){
+    let numero = prompt("Numero de habitacion a buscar: ");
+    console.log("Consultando base de datos del hotel...");
+    setTimeout(function(){
+        let habitacion = habitaciones.find(h => h.numero == numero);
+        if(habitacion){
+            console.log("Habitacion encontrada:");
+            console.log("Numero: " + habitacion.numero);
+            console.log("Tipo: " + habitacion.tipo);
+            console.log("Precio por noche: " + habitacion.precioNoche);
+            console.log("Estado: " + habitacion.estado);
+            console.log("Huesped: " + habitacion.huesped);
+        } else {
+            console.log("Habitacion no encontrada");
+        }
+        callback();
+    }, 2000);
+}
+
