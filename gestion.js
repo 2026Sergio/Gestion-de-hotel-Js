@@ -52,3 +52,4 @@ function registrarHabitacion(callback){
         callback();
     }, 2000)
 }
+
